@@ -2,8 +2,8 @@
 
 function zet_portfolio_post_type(){
 	$labels = array(
-		'name' 					=> esc_html__( 'portfolio', 'zet' ),
-		'singular_name' 		=> esc_html__( 'portfolio', 'zet' ),
+		'name' 					=> esc_html__( 'Portfolio', 'zet' ),
+		'singular_name' 		=> esc_html__( 'Portfolio', 'zet' ),
 		'add_new' 				=> esc_html__( 'Add new Portfolio entry', 'zet' ),
 		'add_new_item' 			=> esc_html__( 'Add new Portfolio entry', 'zet' ),
 		'edit_item' 			=> esc_html__( 'Edit Portfolio entry', 'zet' ),
@@ -67,8 +67,8 @@ function zet_about_post_type(){
 
 function zet_contact_post_type(){
 	$labels = array(
-		'name' 					=> esc_html__( 'contact', 'zet' ),
-		'singular_name' 		=> esc_html__( 'contact', 'zet' ),
+		'name' 					=> esc_html__( 'Contact', 'zet' ),
+		'singular_name' 		=> esc_html__( 'Contact', 'zet' ),
 		'add_new' 				=> esc_html__( 'Add new Contact entry', 'zet' ),
 		'add_new_item' 			=> esc_html__( 'Add new Contact entry', 'zet' ),
 		'edit_item' 			=> esc_html__( 'Edit Contact entry', 'zet' ),
@@ -100,8 +100,8 @@ function zet_contact_post_type(){
 
 function zet_education_post_type(){
 	$labels = array(
-		'name' 					=> esc_html__( 'education', 'zet' ),
-		'singular_name' 		=> esc_html__( 'education', 'zet' ),
+		'name' 					=> esc_html__( 'Education', 'zet' ),
+		'singular_name' 		=> esc_html__( 'Education', 'zet' ),
 		'add_new' 				=> esc_html__( 'Add new Education entry', 'zet' ),
 		'add_new_item' 			=> esc_html__( 'Add new Education entry', 'zet' ),
 		'edit_item' 			=> esc_html__( 'Edit Education entry', 'zet' ),
@@ -133,8 +133,8 @@ function zet_education_post_type(){
 
 function zet_experience_post_type(){
 	$labels = array(
-		'name' 					=> esc_html__( 'experience', 'zet' ),
-		'singular_name' 		=> esc_html__( 'experience', 'zet' ),
+		'name' 					=> esc_html__( 'Experience', 'zet' ),
+		'singular_name' 		=> esc_html__( 'Experience', 'zet' ),
 		'add_new' 				=> esc_html__( 'Add new Experience entry', 'zet' ),
 		'add_new_item' 			=> esc_html__( 'Add new Experience entry', 'zet' ),
 		'edit_item' 			=> esc_html__( 'Edit Experience entry', 'zet' ),
@@ -260,3 +260,5 @@ function zet_language_post_type(){
 	);
 	register_post_type( 'zet_language', $data );
 };
+
+?>

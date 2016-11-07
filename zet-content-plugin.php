@@ -30,12 +30,6 @@ Domain Path: /languages
 require_once( ABSPATH . '/wp-admin/includes/taxonomy.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/includes/zet-custom-posts.php' );
 
-
-add_action( 'wp_enqueue_scripts', 'zet_add_ajax' ); 
-function zet_add_ajax() {
-        wp_localize_script(' jquery','AjaxHandler',array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));
-    };
-
 // create taxonomy for custom posts
 add_action( 'init', 'zet_add_tax', 0 );
 function zet_add_tax() {

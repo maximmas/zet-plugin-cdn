@@ -100,20 +100,6 @@ function zet_custom_posts(){
     zet_contact_post_type();
 };
 
-
-// blog page creation
-// if( null == get_page_by_title( 'Blog Page', OBJECT, 'page' ) ){
-//     $page_data = array(
-//             'post_title'    => esc_html__( 'Blog Page', 'zet' ),
-//             'post_content'  => esc_html__( 'Don&#8216;t remove this page!', 'zet' ),
-//             'post_status'   => 'publish',
-//             'post_type'     => 'page',
-//             'post_name'     => 'blog'
-//         );
-//     $page_id = wp_insert_post( wp_slash( $page_data ) );
-// };  
-
-
 function zet_show_resume_contactform(){
 
     $zet_resume_contactform = '<form id="contact-form" method="POST" class="contact-form">';
@@ -137,23 +123,23 @@ add_action( 'wp_ajax_sendmail', 'zet_sendmail_contact' );
 add_action( 'wp_ajax_nopriv_sendmail', 'zet_sendmail_contact' );
 function zet_sendmail_contact(){
     
-    $zet_frm_name = sanitize_text_field( $_POST["user"] ); 
-    $zet_recepient = sanitize_email( $_POST["user_email"] ); 
-    $zet_sitename  = sanitize_text_field( $_POST["user_url"] ); 
-    $zet_subject   = esc_html__( 'New contact from', 'zet' ) . ' '. esc_html__( $zet_sitename ); 
+    $zet_frm_name 	= sanitize_text_field( $_POST["user"] ); 
+    $zet_recepient 	= sanitize_email( $_POST["user_email"] ); 
+    $zet_sitename  	= sanitize_text_field( $_POST["user_url"] ); 
+    $zet_subject   	= esc_html__( 'New contact from', 'zet' ) . ' '. esc_html__( $zet_sitename ); 
 
-    $zet_name = sanitize_text_field( $_POST["name"] );
-    $zet_email = sanitize_email( $_POST["email"] );
-    $zet_msg = sanitize_text_field( $_POST["message"] );
+    $zet_name 		= sanitize_text_field( $_POST["name"] );
+    $zet_email 		= sanitize_email( $_POST["email"] );
+    $zet_msg 		= sanitize_text_field( $_POST["message"] );
                 
-    $zet_name = ( $zet_name ) ? $zet_name : esc_html_e( 'no visiter&#8216;s name', 'zet' );
-    $zet_email = ($zet_email) ? $zet_email : esc_html_e( 'no visiter&#8216;s email', 'zet' );
-    $zet_msg = ($zet_msg) ? $zet_msg : esc_html_e( 'no visiter&#8216;s message', 'zet' );
+    $zet_name 		= ( $zet_name ) ? $zet_name : esc_html_e( 'no visiter&#8216;s name', 'zet' );
+    $zet_email 		= ( $zet_email ) ? $zet_email : esc_html_e( 'no visiter&#8216;s email', 'zet' );
+    $zet_msg 		= ( $zet_msg ) ? $zet_msg : esc_html_e( 'no visiter&#8216;s message', 'zet' );
 
-    $zet_message = '-------------------<br><br>';
-    $zet_message .= esc_html__( 'Visitor name:', 'zet' ) . $zet_name . '<br>';
-    $zet_message .= esc_html__( 'Visitor email:', 'zet' ) . $zet_email . '<br><br>';
-    $zet_message .= $zet_msg . '<br><br>-------------------';
+    $zet_message 	= '-------------------<br><br>';
+    $zet_message 	.= esc_html__( 'Visitor name:', 'zet' ) . $zet_name . '<br>';
+    $zet_message 	.= esc_html__( 'Visitor email:', 'zet' ) . $zet_email . '<br><br>';
+    $zet_message 	.= $zet_msg . '<br><br>-------------------';
       
     wp_mail( $zet_recepient, $zet_subject, $zet_message, esc_html__( 'From:','zet' ) . $zet_name . "<$zet_recepient>" . "\r\n" . esc_html__( 'Reply-To:','zet' ) . $zet_recepient . "\r\n" . "X-Mailer: PHP/" . phpversion() . "\r\n" . "Content-type: text/html; charset=\"utf-8\"");
     
@@ -164,24 +150,23 @@ function zet_sendmail_contact(){
 add_action( 'wp_head', 'zet_add_opengraph' );
 function zet_add_opengraph(){
 
-     $zet_og_markup = '<meta property="og:title" content="' . esc_html( get_the_title() ) . '"/>';
-     $zet_og_markup .= '<meta property="og:type" content="article"/>';
-     $zet_og_markup .= '<meta property="og:url" content="' . esc_html( get_permalink() ) . '"/>';
-     $zet_og_markup .= '<meta property="og:image" content="' . esc_url( get_the_post_thumbnail_url() ) . '"/>';
-     $zet_og_markup .= '<meta property="og:site_name" content="' . esc_html( get_bloginfo() ) . '"/>';
-     $zet_og_markup .= '<meta property="og:description" content="' . esc_html( get_the_excerpt() ) . '"/>';
+     $zet_og_markup  = '<meta property="og:title" content="' . esc_html( get_the_title() ) . '"/>';
+     $zet_og_markup  .= '<meta property="og:type" content="article"/>';
+     $zet_og_markup  .= '<meta property="og:url" content="' . esc_html( get_permalink() ) . '"/>';
+     $zet_og_markup  .= '<meta property="og:image" content="' . esc_url( get_the_post_thumbnail_url() ) . '"/>';
+     $zet_og_markup  .= '<meta property="og:site_name" content="' . esc_html( get_bloginfo() ) . '"/>';
+     $zet_og_markup  .= '<meta property="og:description" content="' . esc_html( get_the_excerpt() ) . '"/>';
     
      $zet_string = wp_unslash( $zet_og_markup );
        $zet_allowed_html = array(
           'meta' => array(
-              'property' => true,
-              'content' => true,
-               ),
+              'property'  => true,
+              'content'   => true,
+            ),
        ); 
                           
     echo ( wp_kses( $zet_string, $zet_allowed_html ) );
-    
-  
-}
+ 
+};
 
 ?>

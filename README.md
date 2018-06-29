@@ -1,1 +1,1 @@
-# zet-plugin-cdn
+WordPress plugin for the ZET WordPress theme
